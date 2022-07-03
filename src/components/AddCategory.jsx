@@ -1,9 +1,9 @@
 import { useState } from "react"
 
 
-export const AddCategory = () => {
+export const AddCategory = ({ setCategories }) => {
 
-  const [InputValue, setInputValue] = useState('Naruto')
+  const [inputValue, setInputValue] = useState('')
 
   const onInputChange = ({ target }) => {
     // console.log( target.value )
@@ -13,16 +13,22 @@ export const AddCategory = () => {
   const onSubmit = (event) => {
     // console.log(event);
     event.preventDefault();
-    console.log(InputValue)
+    // console.log(inputValue)
+    
+    if( inputValue.trim().length <= 1 ) return;
+
+    setCategories( categories => [ inputValue, ...categories ]);
+    setInputValue('');
+
   }
 
   return (
-    <form action="" onSubmit={ (event) => onSubmit(event) }>
+    <form action="" onSubmit={ onSubmit }>
 
       <input
           type="text"
           placeholder="Buscar gifs"
-          value={ InputValue }
+          value={ inputValue }
           onChange={ onInputChange }
       />
 

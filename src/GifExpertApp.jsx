@@ -5,18 +5,12 @@ export const GifExpertApp = () => {
 
   const [categories, setCategories] = useState([ 'One Puch', 'Dragon Ball' ]);
   
-  // console.log(categories);
   const onAddCategory = ( newCategory ) => {
-    // console.log(newCategory);
-
-    // categories.push('Naruto');
-    // ...categories hace una copia del arreglo
+    
+    if ( categories.includes( newCategory )) return;
 
     // Primera forma de agregar un elemento al arreeglo
     setCategories([ newCategory, ...categories ]);
-
-    // Segunda forma
-    // setCategories( categories => [ ...categories, 'Sasuke' ]);
 
   }
 
@@ -33,13 +27,10 @@ export const GifExpertApp = () => {
         onNewCategory={ event => onAddCategory(event) }
 
       />
-
-      {/* Listago de Gif */}
-      {/* <button onClick={ onAddCategory }>Agregar</button> */}
       
       <ol>
         {
-          categories.map( category => {
+          categories.map( ( category ) => {
             return <li key={ category }>{ category }</li>
           })
         }

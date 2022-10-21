@@ -10,3 +10,11 @@ export const GifItem = ({ title, url, id }) => {
     </div>
   )
 }
+
+/*
+Tarea
+1. Añadir PropTypes
+2. Title obligatorio
+
+Evaluar el snapshot
+*/
